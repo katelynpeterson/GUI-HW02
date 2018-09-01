@@ -1,0 +1,91 @@
+﻿<Window x:Class="HW_02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HW_02"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="500"
+        Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="2*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+            Grid.ColumnSpan="3">
+            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       FontSize="30"
+                       FontFamily="arial">Picture Gallery</TextBlock>
+            <TextBlock HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Margin="10,0,0,0"
+                       FontSize="18">Welcome</TextBlock>
+            <TextBlock HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Margin="10,0,0,0"
+                       FontSize="18"
+                       Name="userName" />
+            <Rectangle VerticalAlignment="Bottom"
+                       Height="10"
+                       Fill="CornflowerBlue" />
+        </StackPanel>
+
+        <StackPanel Name="left" Grid.Row="1"
+                    Grid.Column="0">
+            <Button HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Background="CornflowerBlue"
+                    Width="50"
+                    Height="50">
+                <Button.RenderTransform>
+                    <RotateTransform Angle="45"/>
+                </Button.RenderTransform>
+            </Button>
+        </StackPanel>
+        
+        <Canvas Grid.Column="1"
+                Grid.Row="1">
+            <Image Canvas.Top="42"
+                   Canvas.Left="57">
+                <Image.Source>
+                    <BitmapImage UriSource="/Images/lilies.jpeg"/>
+                </Image.Source>
+            </Image>
+        </Canvas>
+        
+        <StackPanel Name="right" Grid.Row="1"
+                    Grid.Column="3">
+            <Button HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="CornflowerBlue"
+                    Width="50"
+                    Height="50">
+                <Button.RenderTransform>
+                    <RotateTransform Angle="45" />
+                </Button.RenderTransform>
+            </Button>           
+        </StackPanel>
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="3">
+            <Button HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Height="{x:Static SystemParameters.IconHeight}"
+                    Content="Get New Picture"
+                    Click="btnClick_getNewPicture">
+            </Button>
+            
+        </StackPanel>
+    </Grid>
+
+</Window>
