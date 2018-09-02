@@ -8,7 +8,7 @@
         Title="MainWindow"
         Height="500"
         Width="800">
-    <Grid>
+    <Grid Name="myApp">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="2*"/>
@@ -22,13 +22,15 @@
 
         <StackPanel Grid.Row="0"
             Grid.ColumnSpan="3">
-            <TextBlock HorizontalAlignment="Center"
+            <TextBlock Name="title"
+                HorizontalAlignment="Center"
                        VerticalAlignment="Top"
                        FontSize="30"
                        FontFamily="arial">Picture Gallery</TextBlock>
             <TextBlock HorizontalAlignment="Left"
                        VerticalAlignment="Bottom"
                        Margin="10,0,0,0"
+                       Name="welcome"
                        FontSize="18">Welcome</TextBlock>
             <TextBlock HorizontalAlignment="Left"
                        VerticalAlignment="Bottom"
@@ -42,34 +44,35 @@
 
         <StackPanel Name="left" Grid.Row="1"
                     Grid.Column="0">
-            <Button HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom"
+            <Button Name="leftBtn" HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                     Background="CornflowerBlue"
                     Width="50"
-                    Height="50">
+                    Height="50"
+                    Click="btnClick_changeColor"
+                    RenderTransformOrigin="0.5,0.5"
+                    Content="Button">
                 <Button.RenderTransform>
-                    <RotateTransform Angle="45"/>
+                    <RotateTransform Angle="-45"/>
                 </Button.RenderTransform>
             </Button>
         </StackPanel>
-        
+
         <Canvas Grid.Column="1"
-                Grid.Row="1">
-            <Image Canvas.Top="42"
-                   Canvas.Left="57">
-                <Image.Source>
-                    <BitmapImage UriSource="/Images/lilies.jpeg"/>
-                </Image.Source>
-            </Image>
+                Grid.Row="1"
+                Name="picture">
         </Canvas>
         
         <StackPanel Name="right" Grid.Row="1"
                     Grid.Column="3">
-            <Button HorizontalAlignment="Center"
+            <Button Name="rightBtn" HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Background="CornflowerBlue"
                     Width="50"
-                    Height="50">
+                    Height="50"
+                    Click="btnClick_changeFont"
+                    RenderTransformOrigin="0.5,0.5"
+                    Content="Button">
                 <Button.RenderTransform>
                     <RotateTransform Angle="45" />
                 </Button.RenderTransform>
@@ -79,7 +82,8 @@
         <StackPanel Grid.Column="1"
                     Grid.Row="3">
             <Button HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
+                    VerticalAlignment="Center"
+                    Margin="20"
                     Height="{x:Static SystemParameters.IconHeight}"
                     Content="Get New Picture"
                     Click="btnClick_getNewPicture">
