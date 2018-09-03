@@ -29,6 +29,7 @@ namespace HW_02
             pictureArray.Add("/Images/wave.jpeg");
             pictureArray.Add("/Images/tree_lined_lane.jpeg");
             pictureArray.Add("/Images/tree_in_field.jpeg");
+            pictureArray.Add("/Images/mountain_lake.jpeg");
 
             userName.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             
